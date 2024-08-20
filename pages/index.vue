@@ -89,10 +89,11 @@
                     >
                     <div class="thumbnail">
                       <v-img
+                          v-if="content.file_edit1"
                           height="100%"
                           :src="`https://renewwave.cafe24.com/renewImg/image/pc/${content.b_code}/${content.file_edit1}`"/>
 <!--                      <v-img :src="content.file_edit1? `'${content.file_edit1}'`:'/assets/empty.jpg'" id="preview_thumbnail_pc" @error="setDefaultImage($event, 'pc')" />-->
-                      <!-- 배너코드로 폴더명을 만들어야함 -->
+                      <v-img v-else :src="require('assets/empty.jpg')"/>
                     </div>
                     <div class="thumb_txt">PC이미지</div>
                   </div>
@@ -107,7 +108,11 @@
                     >
                     <div class="thumbnail">
                       <!--v-img :src="content.file_edit2"/-->
-                      <v-img height="100%" :src="`https://renewwave.cafe24.com/renewImg/image/m/${content.b_code}/${content.file_edit2}`"/>
+                      <v-img
+                          v-if="content.file_edit2"
+                          height="100%"
+                          :src="`https://renewwave.cafe24.com/renewImg/image/m/${content.b_code}/${content.file_edit2}`"/>
+                      <v-img v-else :src="require('assets/empty.jpg')"/>
                     </div>
                     <div class="thumb_txt">모바일이미지</div>
                   </div>
@@ -607,7 +612,7 @@ export default {
       if(index >= 0) {
         const fileInput = this.$refs['pc_img_' + index][0];
         const file = fileInput.files[0];
-        console.log(file, 'file')
+        console.log(file, 'file', index)
 
         if (file) {
           const reader = new FileReader();
