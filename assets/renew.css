@@ -1,0 +1,180 @@
+@charset "utf-8";
+
+/* reset */
+* {font-family:'Montserrat', 'Noto Sans KR', "Malgun Gothic",Dotum,Helvetica,AppleGothic,Sans-serif !important; word-wrap:break-word; word-break:keep-all;}
+html {overflow-y:scroll}
+body {margin:0;  padding:0; background:#f6f6f6 }
+body.wait *, body.wait {cursor: wait !important;}
+html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0;}
+/*article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}*/
+html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code,del, dfn, em, img, ins, kbd, q, samp,small, strong, sub, sup, var, b, i, dl, dt, dd,ol, ul, li,form, fieldset, legend, label, table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, figcaption, figure,footer, header, hgroup, menu, nav, section, a, summary, time, mark, audio, video, button{ margin: 0; padding:0;  padding:0; border:0; outline:0; line-height:1; font-size:16px; color:#000; font-family:'Montserrat', 'Noto Sans KR', "Malgun Gothic",Dotum,Helvetica,AppleGothic,Sans-serif; font-style:normal; font-weight:400; letter-spacing:-0.5px}
+dl, ul, ol, li { list-style:none outside none; }
+legend {position:absolute; margin:0; padding:0; font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
+label, input, button, select, img {vertical-align:middle}
+input, button {margin:0;padding:0;font-size:14px; -webkit-border-radius:0; -webkit-appearance:none;}
+button {cursor:pointer; background:none; }
+select::-ms-expand { display: none;}
+select {cursor:pointer; margin:0;  border:none; box-sizing:border-box; display:inline-block; }
+option {color:#000; font-weight:400}
+select:focus, input:focus{ outline: none; text-decoration:none;}
+p {word-wrap:break-word; word-break:keep-all; line-height:1.5}
+hr {display:none}
+pre {overflow-x:scroll; white-space: pre-wrap;  white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; }
+a { cursor: pointer; display:inline-block; }
+a:link, a:visited, a:hover, a:focus, a:active  {text-decoration:none;}
+table {width:100%; margin-bottom: 0;  table-layout: fixed;}
+table, td, th {  border-collapse: collapse; }
+th, td {vertical-align:middle; word-wrap:break-word; /*wor d-break:keep-all;*/}
+input, select, option, textarea {font-weight:400; }
+caption {font-size:0; line-height:0; position:absolute; left:-9999px; top:-9999px}
+em, span, i, b, a, strong {font-size:inherit; color:inherit; font-weight:inherit; line-height:inherit; font-style: inherit;}
+input {border:none; -webkit-border-radius: 0; -moz-appearance:none; -webkit-appearance:none; appearance:none; background-color:transparent}
+textarea:disabled, input:disabled  {background:#fcfafa}
+textarea { display:inline-block; width:100%; border:none; color:#000; box-sizing:border-box; padding:16px; resize: none; font-size:16px; font-weight:400 }
+/*placeholder color*/
+input::-webkit-input-placeholder { color:#b3b3b3 !important; font-weight:400 }
+input::-moz-placeholder { color:#b3b3b3 !important; font-weight:400 }
+input:-ms-input-placeholder { color:#b3b3b3 !important; font-weight:400 }
+input:-moz-placeholder { color:#b3b3b3 !important; font-weight:400 }
+textarea::-webkit-input-placeholder { color:#b3b3b3 !important; font-weight:400  }
+textarea::-moz-placeholder { color:#b3b3b3 !important; font-weight:400 }
+textarea:-ms-input-placeholder { color:#b3b3b3 !important; font-weight:400 }
+textarea:-moz-placeholder { color:#b3b3b3 !important; font-weight:400 }
+/*화살표 제거*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0; }
+input[type="button"] {cursor:pointer}
+img {max-width:100%; }
+/*크롬 자동완성 백그라운드 제거 */
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {transition: background-color 5000s ease-in-out 0s;-webkit-transition: background-color 9999s ease-out;-webkit-box-shadow: 0 0 0px 1000px transparent inset !important;-webkit-text-fill-color: #000 !important;}
+
+
+.wrapper {max-width:1500px; width:100%; box-sizing:border-box; position:relative; margin:0 auto; }
+h2.title { color:#546ef4; font-weight: bold; font-size: 17px;}
+
+
+#header { background: #2f3459; padding: 0 20px; box-sizing:border-box; margin-bottom:20px; }
+#header .wrapper { display: flex; gap: 15px; align-items: center; justify-content: space-between; min-height: 80px;}
+#header .logo {font-size:20px; color:#fff; font-weight:500}
+#header .right {color:#fff}
+#header .user {display:inline-block; font-size: 14px;  padding: 8px 20px; background: rgb(255 255 255 / 8%); border-radius:5px; margin-right:10px; }
+#header .used {display:inline-block; font-size: 14px;  padding: 8px 20px; background:#546ef4; border-radius:5px; margin-right:10px; }
+
+#container {min-height:calc(100vh - 158px)}
+.skinListTitle {background: #e7e9f5; display: flex; align-items: center; justify-content: space-between;border-radius: 10px; margin: 20px auto; padding:20px}
+.skinListTitle .skinListName { display: flex; align-items: center; width:calc(100% - 240px)}
+.skinListTitle .skinListName .title { width: 90px;}
+.skinListTitle .skinListName .list {width:calc(100% - 90px)}
+.skinListTitle .skinListName .list li { display:inline-block; color: #222; font-size: 15px; height:40px; line-height:38px; position: relative; cursor: pointer; margin: 0 10px 0 0;  padding: 0 15px; width: auto; box-sizing:border-box; border-radius:5px; border:2px solid rgba(0,0,0,0.1) }
+.skinListTitle .skinListName .list li a {display:block;font-size:15px }
+.skinListTitle .skinListName .list li a span { font-size: 13px; color: #999; margin-left:4px}
+.skinListTitle .skinListName .list li.active {border-color:#546ef4; color:#546ef4}
+.skinListTitle .skinNameBtn {width:200px;height:40px;line-height:40px;  padding:0px 16px; text-align:center; font-size:15px; color:#fff;  border-radius:5px; background:#70748a; box-sizing:border-box;  }
+
+.groupBox {background:#fff; border-radius:10px; display: flex; align-items: stretch; justify-content: flex-start;}
+.groupListBox {width:280px; box-sizing:border-box; border-right:1px solid #e2e2e2; padding:30px 20px; }
+.groupListBox .groupTop  {margin-bottom:20px; }
+.groupListBox .groupTop .title {margin-bottom:20px; }
+.groupListBox .groupTop .btnAdd {height:40px; border-radius:10px; display: flex; align-items: center; justify-content: center; font-size: 14px;color:#fff; background:#546ef4}
+
+.groupList .groupItem {border:1px solid #eee; box-sizing:border-box; padding:16px 16px ; border-radius:10px; position:relative; overflow:hidden; margin: 8px 0;}
+.groupList .groupItem .groupItemInfo {display: flex; align-items: center; justify-content: space-between;  }
+.groupList .groupItem .groupItemInfo .groupName {font-size:14px; }
+.groupList .groupItem .groupItemInfo .groupName span { font-size: 13px; color: #999; margin-left:4px}
+.groupList .groupItem .groupItemInfo .is_active input[type="checkbox"] { appearance: none; background-color: #dfe1e4; border-radius: 72px; border-style: none; flex-shrink: 0; height: 16px; margin: 0; position: relative; width: 30px; }
+.groupList .groupItem .groupItemInfo .is_active input[type="checkbox"]::before { bottom: -6px; content: ""; left: -6px; position: absolute; right: -6px; top: -6px; }
+.groupList .groupItem .groupItemInfo .is_active input[type="checkbox"], .groupList .groupItem .groupItemInfo .is_active input::after { transition: all 100ms ease-out; }
+.groupList .groupItem .groupItemInfo .is_active input[type="checkbox"]::after { background-color: #fff; border-radius: 50%; content: ""; height: 10px; left: 3px; position: absolute; top: 3px; width: 10px; }
+.groupList .groupItem .groupItemInfo .is_active input[type="checkbox"] {cursor: pointer; }
+.groupList .groupItem .groupItemInfo .is_active input[type="checkbox"]:hover { background-color: #c9cbcd; transition-duration: 0s; }
+.groupList .groupItem .groupItemInfo .is_active input[type="checkbox"]:checked { background-color: #4bc99b; }
+.groupList .groupItem .groupItemInfo .is_active input[type="checkbox"]:checked::after { background-color: #fff; left: 16px; }
+.groupList .groupItem .groupItemBtn {display:none; align-items: center; justify-content: flex-start; margin-top:10px; }
+.groupList .groupItem .groupItemBtn a {height: 28px;display: flex; align-items: center;  justify-content: center; font-size: 13px; padding: 0 10px; background:#fff; border-radius:4px; box-sizing:border-box; border: 1px solid #777; color:##777; margin-right:4px; font-size:12px;  }
+.groupList .groupItem .groupItemBtn a:last-child {margin-right:0}
+.groupList .groupItem .groupItemBtn a.btnEdit { color:#5f9cec; border-color:#5f9cec}
+.groupList .groupItem .groupItemBtn a.btnDel { color:#ed5464; border-color:#ed5464}
+
+.groupList .groupItem.active  {padding:16px 16px 10px; background: #f5f5f5; border-left:2px solid #546ef4}
+.groupList .groupItem.active:before { content: ""; width:1px; position: absolute; top: 0; bottom: 0; left: 0; background:#546ef4; }
+.groupList .groupItem.active .groupItemInfo .groupName {font-weight:700}
+.groupList .groupItem.active .groupItemInfo .groupName span {font-weight:400}
+.groupList .groupItem.active .groupItemBtn {display: flex;}
+
+
+.groupDataBox {width:calc(100% - 280px); padding:30px 20px; box-sizing:border-box; }
+.groupDataBox .g1 { width: 70px; }
+.groupDataBox .g2 { width: 150px; }
+.groupDataBox .g3 { width: calc(100% - 350px); }
+.groupDataBox .g4 { width: 130px;}
+
+.groupDataBox .groupDataTop {display: flex; align-items: center; justify-content: space-between; padding-bottom:20px; margin-bottom:20px; border-bottom:1px solid #ddd;   }
+.groupDataBox .groupDataTop .title {font-size:18px; font-weight:600}
+.groupDataBox .groupDataTop .btnBox {display: flex; align-items: center; }
+.groupDataBox .groupDataTop .btnBox a {display: flex; align-items: center; height:40px; padding:0 40px; box-sizing:border-box; border:1px solid #546ef4; color:#546ef4; font-size:14px; line-height:1; border-radius:5px; margin-left:6px;    }
+.groupDataBox .groupDataTop .btnBox a.btnSave {color:#fff; background:#546ef4}
+
+.groupDataList .groupDataInfo {display: flex; align-items: center;  justify-content: flex-start;background: #f5f5f5; margin-bottom:20px; border-radius:10px}
+.groupDataList .groupDataInfo li {font-size: 14px; height: 48px; line-height: 48px; text-align:center; }
+
+.groupDataItemBox .groupDataItem {display: flex; align-items: center; justify-content: flex-start; box-sizing:border-box; box-sizing:border-box; border:1px solid #ddd; border-radius:10px; margin-bottom:20px; }
+.groupDataItemBox .groupDataItem:last-child {marign-bottom:0}
+.groupDataItemBox .groupDataItem li {text-align:center;  padding:0 5px; box-sizing:border-box; }
+.groupDataItemBox .groupDataItem .groupDataImage {display: flex;flex-direction: column; align-items: center;  gap: 9px;}
+.groupDataItemBox .groupDataItem .groupDataImage .thumbArea { width: 100%; height: 120px; cursor: pointer; margin: 5px 0; position: relative;}
+.groupDataItemBox .groupDataItem .groupDataImage .thumbArea .btnRemove { position: absolute; top: 0; right: 0; left: 0; bottom: 0; z-index: 2; display: none; width: 100%; height: 100%; }
+.groupDataItemBox .groupDataItem .groupDataImage .thumbArea:hover .btnRemove { display: flex; align-items: center; justify-content: center; }
+.groupDataItemBox .groupDataItem .groupDataImage .thumbArea .btnRemove a { background: rgb(0 0 0 / 75%); color: #fff; border-radius:4px; display: block; width: 70px; height:20px; font-size:12px;  display: flex; align-items: center; justify-content: center; }
+.groupDataItemBox .groupDataItem .groupDataImage .thumbnail {  width: 100%; height: 90px; z-index: 1; cursor: pointer; overflow: hidden; border-radius: 5px; display: flex; justify-content: center; align-items: center; border: 1px solid #eee; transition: border .25s ease; background: rgb(0 0 0 / 10%); padding: 10px; box-sizing:border-box; }
+.groupDataItemBox .groupDataItem .groupDataImage .thumbnail:hover { border: 1px dashed #aaa;}
+.groupDataItemBox .groupDataItem .groupDataImage .thumbnail:before { content: "이미지등록"; display: block; background:#f0f0f0; background-size: 17px; opacity: 0.4; color: #111; text-align: center; padding: 55% 0 0; box-sizing: border-box; position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 1; font-size: 12px; }
+.groupDataItemBox .groupDataItem .groupDataImage .thumbnail:has(img):before { content: none; }
+.groupDataItemBox .groupDataItem .groupDataImage .thumbnail img { max-width: 100%; max-height: 100%;}
+.groupDataItemBox .groupDataItem .groupDataImage .thumb_txt { display: block; width: 100%; height: 25px; line-height: 25px; background: #e7e9f5; border-radius:5px; font-size: 13px; margin-top:5px }
+
+.groupDataItemBox .groupDataItem .g3  {text-align:left; padding:16px}
+.groupDataItemBox .groupDataItem .sec {display: flex;  align-items: center; padding: 3px 0; color: #777; justify-content: flex-start;}
+.groupDataItemBox .groupDataItem .sec .title { color: #777; ; font-size:13px; width:70px}
+.groupDataItemBox .groupDataItem .sec .data {width:calc(100% - 70px); box-sizing:border-box;}
+.groupDataItemBox .groupDataItem .inputBox .data { width: calc(100% - 157px); box-sizing:border-box; }
+.groupDataItemBox .groupDataItem .inputBox .data input {height: 38px; border: 0; background: #f5f5f5; font-size: 14px; border-radius: 5px; padding: 0 12px; width: 100%; line-height: 38px; box-sizing:border-box; color: #777;  font-size:13px}
+.groupDataItemBox .groupDataItem .inputBox .btn {width:80px; margin-left:7px; }
+.groupDataItemBox .groupDataItem .inputBox .btn a {height: 38px; line-height: 38px; display: inline-block;width:100%; text-align: center; background: #fff; border-radius: 5px; font-size:12px;  color:#5f9cec; border:1px solid #5f9cec; box-sizing:border-box; }
+.groupDataItemBox .groupDataItem .inputBox .btn a.btnDel { color:#ed5464; border-color:#ed5464}
+.groupDataItemBox .groupDataItem .inputBox .btn .select { border: 1px solid #999; height: 38px; border-radius: 5px; width:100%; color: #777; padding: 0 7px; }
+
+.groupDataItemBox .groupDataItem .colorBox .data { display: flex; align-items: center; justify-content: flex-start;}
+.groupDataItemBox .groupDataItem .colorBox .data .colorPickerBox {display: flex; flex: 1; border-radius: 5px; background: #f5f5f5; overflow: hidden; align-items: center;}
+.groupDataItemBox .groupDataItem .colorBox .data .colorPickerBox .lb {color: #999; font-size: 13px; padding: 0 5px; background: #fff; line-height: 35px; width: 50px;}
+.groupDataItemBox .groupDataItem .colorBox .data .colorPickerBox .colorPicker { width: 37px; height: 30px;  border: none; padding: 0 5px;}
+.groupDataItemBox .groupDataItem .colorBox .data .colorPickerBox .colorPicker::-webkit-color-swatch { border-radius: 5px; border: none; border: 1px solid #e5e5e5; }
+.groupDataItemBox .groupDataItem .colorBox .data .colorPickerBox  input[type="text"] { max-width: 80px; height: 35px; line-height: 35px; border-radius: 0; padding: 0; text-align: center; outline: 0; }
+
+.groupDataItemBox .groupDataItem .sec .data textarea{ height: 80px; line-height: 20px; padding: 10px 12px; color: #777; resize: vertical; overflow: auto; box-sizing:border-box; border-radius:10px; background: #f5f5f5; font-size:13px}
+
+.groupDataItemBox .groupDataItem .dateBox label { margin: 0 5px 0 10px; line-height: 36px; color: #777; font-size:12px}
+.groupDataItemBox .groupDataItem .dateBox label:first-child { margin-left: 0; }
+.groupDataItemBox .groupDataItem .dateBox label input[type="radio"] { vertical-align: middle; margin: -3px 5px 0 0; appearance: revert; }
+/*.groupDataItemBox .groupDataItem .dateBox .calendar {display:none}*/
+.groupDataItemBox .groupDataItem .dateBox .calendar.active { display: flex; align-items: center; gap: 5px; font-size:12px}
+.groupDataItemBox .groupDataItem .dateBox .calendar input {height: 38px; border: 0; background: #f5f5f5; font-size: 14px; border-radius: 5px; padding: 0 12px; width: 100%; line-height: 38px; box-sizing:border-box; color: #777;  font-size:13px; text-align:center; }
+.groupDataItemBox .groupDataItem .dateBox .calendar .startDate, .groupDataItemBox .groupDataItem .dateBox .calendar .endDate { width: 200px;}
+
+.groupDataItemBox .groupDataItem .btnBox .checkbox  {font-size:0; margin-bottom:20px; }
+.groupDataItemBox .groupDataItem .btnBox .checkbox input[type="checkbox"]{ appearance: none; background-color: #dfe1e4; border-radius: 72px; border-style: none; flex-shrink: 0; height: 35px; margin: 0; position: relative; width: 90px; }
+.groupDataItemBox .groupDataItem .btnBox .checkbox input[type="checkbox"]::before { content: "사용안함"; position: absolute; top: 0; right: 0; display: flex; align-items: center; justify-content: flex-start; width: 100%; height: 100%; box-sizing: border-box; padding-left: 36px; color: #999; font-size: 12px; }
+.groupDataItemBox .groupDataItem .btnBox .checkbox input[type="checkbox"], .groupDataItemBox .groupDataItem .btnBox .checkbox input::after { transition: all 100ms ease-out; }
+.groupDataItemBox .groupDataItem .btnBox .checkbox input[type="checkbox"]::after { content: ""; background-color: #fff; border-radius: 50%; left: 3px; position: absolute; top: 3px; width: 29px; height: 29px; }
+.groupDataItemBox .groupDataItem .btnBox .checkbox input[type="checkbox"] {cursor: pointer; }
+.groupDataItemBox .groupDataItem .btnBox .checkbox input[type="checkbox"]:hover { background-color: #c9cbcd; transition-duration: 0s; }
+.groupDataItemBox .groupDataItem .btnBox .checkbox input[type="checkbox"]:checked{ background-color: #4bc99b; }
+.groupDataItemBox .groupDataItem .btnBox .checkbox input[type="checkbox"]:checked::after { background-color: #fff; left: 57px; }
+.groupDataItemBox .groupDataItem .btnBox .checkbox input[type="checkbox"]:checked::before {content: "사용함"; padding: 0 0 0 16px; color: #fff;}
+
+.groupDataItemBox .groupDataItem .btnBox {display: flex;flex-direction: column; align-items: center;}
+.groupDataItemBox .groupDataItem .btnBox a { display: flex; align-items: center; width: 90px; height: 35px; justify-content: center; font-size: 13px; box-sizing:border-box; border:1px solid #ddd; border-radius: 72px; margin-bottom:10px; color:#999; transition: all 0.4s ease-out;  }
+.groupDataItemBox .groupDataItem .btnBox a:last-child {margin-bottom:0}
+.groupDataItemBox .groupDataItem .btnBox a:hover {color:#888; border-color:#888}
+
+#footer {text-align: center; padding: 10px 0 30px; margin-top:30px; }
+#footer .copyright { font-size: 12px; color: #777;}
