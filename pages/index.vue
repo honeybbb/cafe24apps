@@ -34,6 +34,8 @@
                       type="checkbox"
                       name="is_active"
                       v-model="banner.displayYn"
+                      :true-value="'Y'"
+                      :false-value="'N'"
                       @change="toggleDisplayYn(banner.b_code, banner.displayYn)"
                   />
                 </div>
@@ -168,6 +170,8 @@
                         class="toggleInput"
                         name="is_active"
                         v-model="content.displayYn"
+                        :true-value="'Y'"
+                        :false-value="'N'"
                     >
                     <label class="toggleInputTxt"></label>
                   </div>
@@ -672,7 +676,6 @@ export default {
     toggleDisplayYn(bcode, displayYn) {
       const id = "renewwave";
       // const id = this.$route.params.mallId;
-      displayYn = displayYn ? 'Y':'N'
       // console.log(bcode, displayYn)
 
       let params = new URLSearchParams();
