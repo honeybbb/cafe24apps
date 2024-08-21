@@ -183,7 +183,7 @@ a:hover {
   display: inline-block;
   width: 15px;
   height: 15px;
-  background: url(/images/icon_round_plus_546ef4.svg) no-repeat;
+  background: url(/assets/icon_round_plus_546ef4.svg) no-repeat;
   background-size: 15px;
   margin: -2px 5px 0 0;
   vertical-align: middle;
@@ -236,7 +236,7 @@ a:hover {
   display: inline-block;
   width: 12px;
   height: 15px;
-  background: url(/images/icon_member.svg) no-repeat 0 50%;
+  background: url(/assets/icon_member.svg) no-repeat 0 50%;
   background-size: 11px;
   margin: -2px 5px 0 0;
   vertical-align: middle;
@@ -251,7 +251,7 @@ a:hover {
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: url(/images/icon_info.svg) no-repeat;
+  background: url(/assets/icon_info.svg) no-repeat;
   background-size: 16px;
   margin: -2px 5px 0 0;
   vertical-align: middle;
@@ -281,7 +281,7 @@ a:hover {
   border-radius: 50%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   font-size: 0;
-  background: #fff url(/images/icon_top.svg) no-repeat 50%;
+  background: #fff url(/assets/icon_top.svg) no-repeat 50%;
   background-size: 18px;
   transform: rotate(90deg);
 }

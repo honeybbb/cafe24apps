@@ -89,11 +89,11 @@
                     >
                     <div class="thumbnail">
                       <v-img
-                          v-if="content.file_edit1"
-                          height="100%"
-                          :src="`https://renewwave.cafe24.com/renewImg/image/pc/${content.b_code}/${content.file_edit1}`"/>
-<!--                      <v-img :src="content.file_edit1? `'${content.file_edit1}'`:'/assets/empty.jpg'" id="preview_thumbnail_pc" @error="setDefaultImage($event, 'pc')" />-->
-                      <v-img v-else :src="require('assets/empty.jpg')"/>
+                        height="100%"
+                        :src="getPcImageSrc(index, content.b_code, content.file_edit1)" />
+<!--                        :src="`https://renewwave.cafe24.com/renewImg/image/pc/${content.b_code}/${content.file_edit1}`"/>-->
+<!--                     <v-img :src="content.file_edit1? `'${content.file_edit1}'`:'/assets/empty.jpg'" id="preview_thumbnail_pc" @error="setDefaultImage($event, 'pc')" />-->
+                      <!--v-img v-else :src="require('assets/empty.jpg')"/-->
                     </div>
                     <div class="thumb_txt">PC이미지</div>
                   </div>
@@ -109,10 +109,10 @@
                     <div class="thumbnail">
                       <!--v-img :src="content.file_edit2"/-->
                       <v-img
-                          v-if="content.file_edit2"
                           height="100%"
-                          :src="`https://renewwave.cafe24.com/renewImg/image/m/${content.b_code}/${content.file_edit2}`"/>
-                      <v-img v-else :src="require('assets/empty.jpg')"/>
+                          :src="getMoImageSrc(index, content.b_code, content.file_edit2)"/>
+<!--                          :src="`https://renewwave.cafe24.com/renewImg/image/m/${content.b_code}/${content.file_edit2}`"/>-->
+                      <!--v-img v-else :src="require('assets/empty.jpg')"/-->
                     </div>
                     <div class="thumb_txt">모바일이미지</div>
                   </div>
@@ -608,6 +608,21 @@ export default {
       }
 
     },
+    getPcImageSrc(index, b_code, file_edit1) {
+      console.log(this.$refs['pc_img_'+index], 'this.pc_img')
+      if(this.$refs['pc_img_'+index]) {
+        return file_edit1
+      } else {
+        return `https://renewwave.cafe24.com/renewImg/image/pc/${b_code}/${file_edit1}`
+      }
+    },
+    getMoImageSrc(index, b_code, file_edit2) {
+        if(this.$refs['mo_img_'+index]) {
+          return file_edit2
+      } else {
+          return `https://renewwave.cafe24.com/renewImg/image/m/${b_code}/${file_edit2}`
+      }
+    },
     previewImage1(index) {
       if(index >= 0) {
         const fileInput = this.$refs['pc_img_' + index][0];
@@ -732,15 +747,19 @@ export default {
       });
 
       // pc_html과 mo_html을 그대로 전송
-      axios.post(`http://localhost:3009/api/v1/upload/group/process`, {
-        mallId: mallId,
-        bcode: bcode,
-        scode: scode,
-        pc_html: pc_html,
-        mo_html: mo_html
-      })
+      axios.post(`http://localhost:3009/api/v1/upload/group/process`,
+          {
+                  mallId: mallId,
+                  bcode: bcode,
+                  scode: scode,
+                  pc_html: pc_html,
+                  mo_html: mo_html
+                }
+      )
           .then(res => {
             console.log(res.data.data);
+            alert("성공적으로 전송하였습니다.")
+            this.getBannerContent(this.groupName, this.bcode)
           });
     },
     formatDate(date) {
@@ -909,6 +928,7 @@ export default {
           })
     },
     addBannerContent() {
+      /*
       this.b_file_edit1 = '';
       this.b_file_edit2 = '';
       this.b_name = '';
@@ -916,6 +936,22 @@ export default {
       this.b_link = '';
 
       this.dialog2=true
+
+       */
+
+      this.contentList.push({
+        'b_code' : this.bcode,
+        'title': '',
+        'description': '',
+        'link': '',
+        'file_edit1': '',
+        'file_edit2': '',
+        'sub_sort': 0,
+        'displayYn': 'Y',
+        'showStartDt': '',
+        'showEndDt': '',
+        'checkShow': 'N'
+      })
     },
     setBannerContent() {
       // sort 값 지정 후 저장
@@ -927,6 +963,7 @@ export default {
             a.displayYn = 'N'
           }
       })
+
       console.log(this.contentList, 'contentList')
       let contents = this.contentList;
       let cLength = this.contentList.length;
@@ -967,6 +1004,9 @@ export default {
         }
 
       }
+
+      alert("성공적으로 저장되었습니다.")
+      this.getBannerContent(this.groupName, this.bcode)
     },
     fileUpload(seq, idx) {
       let mallId = "renewwave";
@@ -974,21 +1014,22 @@ export default {
       let file2 = this.$refs[`mo_img_${idx}`][0].files[0]; // 파일 입력 엘리먼트에서 첫 번째 파일 가져오기
 
       console.log('file1:', file1, 'file2:', file2)
-      //return;
 
-      let formData = new FormData();
-      formData.append('file1', file1);
-      formData.append('file2', file2);
-      formData.append('bcode', this.bcode)
-      formData.append('mallId', mallId)
-      axios.post(`http://localhost:3009/api/v1/upload/${seq}`, formData, {
-        headers: {
-          'Content-Type' : 'multipart/form-data'
-        }
-      }).then(res => {
-        console.log(res, 'file uploads')
+      if(file1 || file2) {
+        let formData = new FormData();
+        formData.append('file1', file1);
+        formData.append('file2', file2);
+        formData.append('bcode', this.bcode)
+        formData.append('mallId', mallId)
+        axios.post(`http://localhost:3009/api/v1/upload/${seq}`, formData, {
+          headers: {
+            'Content-Type' : 'multipart/form-data'
+          }
+        }).then(res => {
+          console.log(res, 'file uploads')
 
-      })
+        })
+      }
     },
   },
   mounted() {
