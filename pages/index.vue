@@ -957,11 +957,11 @@ export default {
       // sort 값 지정 후 저장
       this.contentList.forEach((a, index) => {
           a.sub_sort = index
-          if(a.displayYn) {
-            a.displayYn = 'Y'
-          }else{
-            a.displayYn = 'N'
-          }
+          // if(a.displayYn) {
+          //   a.displayYn = 'Y'
+          // }else{
+          //   a.displayYn = 'N'
+          // }
       })
 
       console.log(this.contentList, 'contentList')
